@@ -1,0 +1,53 @@
+<%inherit file="base_app.htm" />
+
+<%block name="content">
+<div class="row">
+	<div class="col-md-6">
+		<h2>Admin Dashboard</h2>
+		<hr>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<div class="thumbnail">
+			<a href="/manager/users/">
+			<img src="${STATIC_URL}/manager/media/users.png" alt="...">
+			<div class="caption">
+				<h3 class="text-center">Users</h3>
+			</div>
+		</a>
+	  </div>
+	</div>
+	<div class="col-md-3">
+		<div class="thumbnail">
+			<a href="/manager/products/">
+			<img src="${STATIC_URL}/manager/media/shoppingbag.png" alt="...">
+			<div class="caption">
+				<h3 class="text-center">Products</h3>
+			</div>
+		</a>
+	  </div>
+	</div>
+	<div class="col-md-3">
+		<div class="thumbnail">
+			<a href="/manager/venues/">
+			<img src="${STATIC_URL}/manager/media/location.png" alt="...">
+			<div class="caption">
+				<h3 class="text-center">Venues</h3>
+			</div>
+		</a>
+	  </div>
+	</div>
+	<div class="col-md-3">
+		<div class="thumbnail">
+			<a href="/manager/events/">
+			<img src="${STATIC_URL}/manager/media/events.png" alt="..." class="img-circle">
+			<div class="caption">
+				<h3 class="text-center">Events</h3>
+			</div>
+		</a>
+	  </div>
+	</div>
+</div>
+
+</%block>

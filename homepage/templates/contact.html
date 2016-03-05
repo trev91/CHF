@@ -1,0 +1,49 @@
+<%inherit file="base_app.htm" />
+
+<%block name="title">
+	Contact Us
+</%block>
+
+<%block name="content">
+<div class="row">
+				<div class="col-md-12">
+					<!--This pushes the page title down so that the top nav doesn't cover it. -->
+					<div class="hidden-lg hidden-md hidden-sm visible-xs-inline-block" style="padding-top:35px"></div>
+					<!-- Comment out to remove. -->
+					<h1 class="page-header" style="text-align:center">Contact Us</h1>
+
+				</div>
+			</div> <!-- /.row -->
+					
+					<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6 pad-bottom-double">
+						<div class="pad-top-none contact-intro-container">
+							<p class="lead center-block text-center">
+								Please send us a message if you have any questions! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</p>
+						</div> <!-- /.contact-intro -->
+
+						</div>
+							<form class="col-md-6" action ="/homepage/contact/" method="POST">
+								<table>
+									<tr>
+										<td style="padding-bottom:25px">Your Name:</td>
+										 <td style="padding-bottom:25px"><input type="text" name="name" /></td>
+											<tr></tr>
+										<td style="padding-bottom:25px">Your Email:</td>
+											<td style="padding-bottom:25px"><input type="text" name="email" /></td>
+											<tr></tr>
+								<td style="padding-bottom:25px">Message:</td>
+									<td style="padding-bottom:25px"><textarea name="message"></textarea></td>	
+											<tr></tr>
+									<td  style="padding-bottom:25px" colspan="2" align="center"><input type="submit" value="Send Message"/></td>
+									<tr></tr>
+							</table>
+							
+						</div> <!-- /.col-md-6 -->
+						
+					</div>
+					</div> <!-- .row -->
+				</div>
+</%block>

@@ -1,0 +1,24 @@
+<%inherit file="base_app.htm" />
+
+<%block name="title">
+	My Account
+</%block>
+<%block name="content_top">
+<h1 class="title text-center">
+	My Account
+</h1>
+<hr>
+</%block>
+<%block name="content">
+<div class="col-md-5">
+	<p>Here's your account information. To change your password, <a href="/account/changepassword/">click here.</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<div class="col-md-7 text-left">
+<form method='POST' action='/account/myaccount/' id='ChangeAccountForm'>
+	<table>
+  	${ form }
+  </table>
+  <button class="btn btn-primary" type="submit" style="margin-left:150px; margin-top:30px">Make Changes</button>
+</form>
+
+</%block>

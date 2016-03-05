@@ -1,0 +1,65 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="title">Colonial Heritage Foundation</%block>
+
+<%block name="main_menu">
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" style="shadowed" href="/"><span style="font-family: Great Vibes"><span style="color:#FF6863"><span style="font-size:1.5em">Colonial Heritage Foundation</span></span></span><!--<img src="${STATIC_URL}homepage/media/images/chftransparent.png">--></a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav" style="padding-left:50px">
+		        <li class="${ 'active' if request.dmp_router_page == 'users' else ''}"><a href="/manager/users/"><span style="color:white">Users</span></a></li>
+		       
+						<li class="${ 'active' if request.dmp_router_page == 'products' else ''}"><a href="/manager/products/"><span style="color:white">Products</span></a></li>
+						<li class="${ 'active' if request.dmp_router_page == 'venues' else ''}"><a href="/manager/venues/"><span style="color:white">Venues</span></a></li>
+						<li class="${ 'active' if request.dmp_router_page == 'events' else ''}"><a href="/manager/events/"><span style="color:white">Events</span></a></li>
+						<li class="${ 'active' if request.dmp_router_page == 'index' else ''}"><a href="/homepage/index/"><span style="color:white">Home</span></a></li>
+		      
+
+
+%if request.user.is_authenticated():
+<!--HTML for dropdown and logout and my account -->
+					<div class="dropdown nav navbar-nav navbar-right push-right dropdown-menu-right">
+  					<li class="dropdown-toggle dropdown-menu-right push-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><a href="#"><span style="color:white">My Account<span class="caret"></span></span></a>
+  					</li>
+  					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    					<li class="${ 'active' if request.dmp_router_page == 'myaccount' else ''}"><a href="/account/myaccount/"><span style="color:white">My Account Information</span></a></li>
+    					<li id="logoutbutton"><a href="/account/logout/"><span style="color:white">Logout</span></a></li>
+						</ul>
+					</div>
+
+
+			  </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+%else:
+<!-- Login link -->
+			  <ul class="nav navbar-nav navbar-right">
+			    <li id="loginbutton" class="${ 'active' if request.dmp_router_page == 'Login' else ''}"><a href="#"><span style="color:white">Login</span></a>
+					</li>
+			    <li class="${ 'active' if request.dmp_router_page == 'Signup' else ''}" style="padding-right:30px"><a href="/account/signup/"><span style="color:white">Signup</span></a>
+					</li>
+			  </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+%endif
+
+
+</%block>		
+		
+<%block name="content">
+
+</%block>

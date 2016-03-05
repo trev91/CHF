@@ -1,0 +1,42 @@
+<%inherit file="base_app.htm" />
+
+<%block name="title">
+	Create Event
+</%block>
+<%block name="content_top">
+<ol class="breadcrumb">
+  <li><a href="/manager/index/">Admin Dashboard</a></li>
+	<li><a href="/manager/events/">Events</a></li>
+</ol>
+<h1 class="title text-center">
+	New Area
+</h1>
+<hr>
+</%block>
+<%block name="content">
+<div class="col-md-7 text-left">
+<form method="POST" action=${action}>
+  <table>
+      ${ form.as_p() }
+  </table>
+  <script type="text/javascript">
+      $(function () {
+          $('#id_start_date').datetimepicker({
+                 format: 'MM/DD/YYYY'
+           });
+           $('#id_end_date').datetimepicker({
+                  format: 'MM/DD/YYYY'
+            });
+	          $('#id_add_date').datetimepicker({
+	                 format: 'MM/DD/YYYY'
+	           });
+      });
+  </script>
+  <button class="btn btn-primary" type="submit" style="margin-left:30px">Create</button>
+</form>
+
+				       
+
+
+
+</%block>

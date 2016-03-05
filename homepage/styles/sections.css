@@ -1,0 +1,36 @@
+#top_styled {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:25px;
+	margin-bottom:20px;
+}
+#left_col_styled {
+    background-color:orange;
+    color:white;
+    text-align:center;
+    height:auto;
+	padding:5px;
+}
+#mid_col_styled {
+    background-color:blue;
+    color:white;
+    text-align:center;
+    height:auto;
+	padding:5px;
+	
+}
+#right_col_styled {
+    background-color:green;
+    color:white;
+    text-align:center;
+    height:auto;
+	padding:5px;
+}
+#footer_styled {
+    background-color:white;
+    color:black;
+    text-align:center;
+    height:50px;
+	margin-top:20px;
+}

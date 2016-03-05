@@ -1,0 +1,67 @@
+<%inherit file="base_app.htm" />
+
+<%block name="content">
+<ol class="breadcrumb">
+  <li><a href="/manager/index/">Admin Dashboard</a></li>
+	<li><a href="/manager/users/">Users</a></li>
+	<li><a href="/manager/products/">Products</a></li>
+	<li><a href="/manager/venues/">Venues</a></li>
+  <li class="active"><a href="/manager/events/">Events</a></li>
+</ol>
+<div class="col-md-12">
+	<h2 class="text-center" style="margin-bottom:25px">Event List</h2>
+</div>
+
+<table class="table table-striped">
+	<tr>
+		<th>Event Name:</th>
+		<th>Image:</th>
+		<th>Description:</th>
+		<th>Start Date:</th>
+		<th>End Date:</th>
+		<th>Date Added:</th>
+		<th>Venue:</th>
+		<th></th>
+		<th>Actions:</th>
+	</tr>
+		%for Event in all_events:
+  <tr>
+			<td>${Event.name}</td>
+			<td>${Event.image}</td>
+      <td>${Event.description}</td>
+			<td>${Event.start_date}</td>
+			<td>${Event.end_date}</td>
+			<td>${Event.add_date}</td>
+			<td>${Event.venue_id}</td>
+			<td></td>
+			<td><a href="/manager/eventsedit/${Event.id}/">Edit</a> |
+				 <a href="/manager/eventsdelete/${Event.id}/" class="delete_button">Delete</a>
+  </tr>
+	
+    %endfor
+	</table>
+	
+<a id="create_user_button" href="/manager/eventscreate/" class="btn btn-sm btn-warning" style="float:right; margin-bottom:5px">New Event</a>
+	
+	<!--MODAL DELETE-->
+<div class="modal fade" id = "delete_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirmation Requested</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this product?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">No, Cancel</button>
+				<!--USE JS TO GRAB THE LINK FROM THE DELETE BUTTON ABOVE-->
+        <a id="confirm_delete_button" href="" class="btn btn-danger">Yes, Delete</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+		
+
+</%block>

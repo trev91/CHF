@@ -1,0 +1,35 @@
+<%inherit file="base_app.htm" />
+
+<%block name="title">
+	Edit User
+</%block>
+<%block name="content_top">
+<ol class="breadcrumb">
+  <li><a href="/manager/index/">Admin Dashboard</a></li>
+	<li><a href="/manager/users/">Users</a></li>
+  <li class="disabled"><a href="#">Edit User</a></li>
+</ol>
+<h1 class="title text-center">
+	Edit User
+</h1>
+<hr>
+</%block>
+<%block name="content">
+
+<div class="col-md-7 text-left">
+<form method='POST' action=${action} id='UsersEditForm'>
+	<table>
+  	${ form }
+  </table>
+  <script type="text/javascript">
+      $(function () {
+          $('#id_birthdate').datetimepicker({
+                 format: 'MM/DD/YYYY'
+           });
+      });
+  </script>
+	<a href="/manager/users/" class="btn btn-danger" style="margin-left:50px; margin-top:30px">Cancel</a>
+  <button class="btn btn-primary" type="submit" style="margin-left:50px; margin-top:30px">Make Changes</button>
+	<a href="/manager/userschangepassword/${toPW}" class="btn btn-warning" style=" margin-top:30px">Change Password</a>
+</form>
+</%block>

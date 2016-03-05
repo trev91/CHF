@@ -1,0 +1,124 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    
+    <title><%block name="title"> &mdash;Colonial Heritage Foundation</%block></title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="${ STATIC_URL }homepage/media/scripts/base.js"></script>
+	<script src="${ STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+	<script src="${ STATIC_URL }homepage/media/jquery.form.js"></script>
+	<script src="${ STATIC_URL }homepage/scripts/moment.min.js"></script>
+	<script src="${ STATIC_URL }homepage/media/bootstrap3/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="${ STATIC_URL }manager/scripts/users.js"></script>
+	<script src="${ STATIC_URL }manager/scripts/ajaxedit.js"></script>
+
+	<!--script src="${ STATIC_URL }manager/scripts/users.js"></script-->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--Font Awesome-->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!--Fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!--Custom CSS-->
+	<link rel="stylesheet" href="${STATIC_URL}homepage/styles/base.css">
+	<link rel="stylesheet" href="${STATIC_URL}homepage/styles/index.css">
+	<link rel="stylesheet" href="${STATIC_URL}homepage/styles/sections.css">
+	<link rel="stylesheet" href="${STATIC_URL}homepage/media/bootstrap3/css/bootstrap-datetimepicker.min.css">
+  
+  	## Bootstrap CSS
+	<link rel="stylesheet" href="${STATIC_URL}homepage/media/bootstrap3/css/bootstrap.css" />
+	## Favicon
+	<link rel="icon" type="image/png" href="${STATIC_URL}homepage/media/images/favicon.ico" />
+	
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+  
+  
+  </head>
+  <body>
+	  <!--Padding for navbar-fixed-->
+	  <div style="padding-top:100px"></div>
+  
+    <header>
+		
+		<div id="user_message">
+			<%block name="user_message">
+				
+			</%block>
+    </header>
+	
+	<div id="maintenance_message">
+		<%block name="mainenance_message">
+			User is: ${request.user}
+		</%block>
+	</div>
+	<div id="main_menu">
+  		<%block name="main_menu">
+	
+		</%block>
+	</div>
+        
+<div id="jumbotron">
+	<%block name="jumbotron">
+	
+	</%block>
+</div>
+	
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<%block name="content_top">
+				
+				</%block>
+			<div class="col-md-2">
+				<%block name="content_left">
+				
+				</%block>
+			</div><!--left content-->
+			<div class="col-md-8">
+				<%block name="content_center">
+				
+				</%block>
+			</div><!--center content-->
+			<div class="col-md-2">
+				<%block name="content_right">
+				
+				</%block>
+			</div><!--right content-->
+		</div>
+	</div>
+	
+    <%block name="content">
+      
+    </%block>  
+<footer>
+	<div style="padding-top: 30px"></div>
+	<hr>
+	<%block name="footer">
+<%import datetime
+current_year = datetime.date.today().year%>
+		<div id="footer" class="container-fluid col-md-12">
+		Copyright &copy; Trevor Hardy ${ current_year }
+		</div>
+	</%block>
+	<div style="padding-bottom: 30px"></div>
+</footer>
+  
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="${ STATIC_URL }homepage/media/bootstrap/js/bootstrap.min.css" ></script>
+    ## render the JS with the same name as this page (BOTTOM OF PAGE)
+    ${ static_renderer.get_template_js(request, context)  }
+ 
+  </body>
+ 
+</html>
