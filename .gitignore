@@ -1,0 +1,8 @@
+# Files GIT will ignore
+migrations/
+__pycache__
+*.pyc
+cached_templates/
+.DS_Store
+.cached_templates/
+*.log
